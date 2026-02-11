@@ -1,5 +1,10 @@
-import { motion } from "framer-motion";
-import gameLogo from "@/assets/game-logo.png";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import gameLogo from "@/assets/game-logo-clean.png";
+import gameScreen1 from "@/assets/game-screen-1.jpg";
+import gameScreen2 from "@/assets/game-screen-2.jpg";
+import gameScreen3 from "@/assets/game-screen-3.jpg";
+import gameScreen4 from "@/assets/game-screen-4.jpg";
 import ScrollReveal from "@/components/ScrollReveal";
 import {
   AnimatedLine,
@@ -12,40 +17,117 @@ import {
   StaggerItem,
 } from "@/components/AnimatedElements";
 
+const gameScreens = [
+  { src: gameScreen1, label: "Pressure Arena", desc: "Core gameplay — manage the threshold" },
+  { src: gameScreen2, label: "Compressor Zone", desc: "Enemies distort pressure behavior" },
+  { src: gameScreen3, label: "Rupture Event", desc: "Tolerance depleted — run ends" },
+  { src: gameScreen4, label: "Analytics", desc: "Performance tracking and mastery data" },
+];
+
 const TheGame = () => {
+  const [activeScreen, setActiveScreen] = useState(0);
+
   return (
     <main className="pt-24">
-      {/* Header */}
+      {/* Header with Logo */}
       <section className="py-24 px-6 md:px-12">
         <div className="max-w-3xl mx-auto">
-          {/* Game Logo */}
-          <motion.div
-            className="flex justify-center mb-12"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <img
+          <div className="flex items-center gap-6 mb-10">
+            <motion.img
               src={gameLogo}
-              alt="PRESSURE POINT logo"
-              className="w-28 h-28 md:w-36 md:h-36 object-contain"
+              alt="PRESSURE POINT"
+              className="w-14 h-14 md:w-18 md:h-18 object-contain"
+              initial={{ opacity: 0, rotate: -10 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             />
-          </motion.div>
+            <div>
+              <motion.p
+                className="text-[10px] tracking-ultra-wide font-mono text-muted-foreground uppercase mb-1"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+              >
+                Design Document
+              </motion.p>
+              <CharReveal
+                text="The Game"
+                className="text-4xl md:text-6xl font-serif font-medium"
+                delay={0.3}
+              />
+            </div>
+          </div>
+          <AnimatedLine color="accent" width="w-12" delay={0.6} />
+        </div>
+      </section>
 
-          <motion.p
-            className="text-[10px] tracking-ultra-wide font-mono text-muted-foreground uppercase mb-6"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Design Document
-          </motion.p>
-          <CharReveal
-            text="The Game"
-            className="text-4xl md:text-6xl font-serif font-medium mb-8"
-            delay={0.3}
-          />
-          <AnimatedLine color="accent" width="w-12" delay={0.8} />
+      {/* Game Album */}
+      <section className="py-20 px-6 md:px-12 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <ScrollReveal>
+            <p className="text-[10px] tracking-fashion font-mono text-gold uppercase mb-10">
+              Game Album
+            </p>
+          </ScrollReveal>
+
+          {/* Main preview */}
+          <div className="relative mb-6 overflow-hidden bg-charcoal flex items-center justify-center" style={{ minHeight: 420 }}>
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={activeScreen}
+                src={gameScreens[activeScreen].src}
+                alt={gameScreens[activeScreen].label}
+                className="h-[420px] md:h-[500px] w-auto object-contain"
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              />
+            </AnimatePresence>
+          </div>
+
+          {/* Info */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeScreen}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="mb-8"
+            >
+              <p className="text-base font-serif font-medium mb-1">
+                {gameScreens[activeScreen].label}
+              </p>
+              <p className="text-xs text-muted-foreground font-light">
+                {gameScreens[activeScreen].desc}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Thumbnails */}
+          <div className="grid grid-cols-4 gap-3">
+            {gameScreens.map((screen, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveScreen(i)}
+                className={`relative overflow-hidden transition-all duration-300 ${
+                  activeScreen === i
+                    ? "ring-1 ring-accent opacity-100"
+                    : "opacity-50 hover:opacity-80"
+                }`}
+              >
+                <img
+                  src={screen.src}
+                  alt={screen.label}
+                  className="w-full h-24 md:h-32 object-cover"
+                />
+                <span className="absolute bottom-2 left-2 text-[9px] font-mono text-primary-foreground bg-foreground/70 px-1.5 py-0.5">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
