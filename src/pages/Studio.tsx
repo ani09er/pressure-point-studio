@@ -21,27 +21,76 @@ const Studio = () => {
         </div>
       </section>
 
+      {/* Studio Identity */}
       <section className="py-20 px-6 md:px-12 border-t border-border">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <p className="text-[10px] tracking-fashion font-mono text-muted-foreground uppercase mb-10">
-              About
+              Studio Identity
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <p className="text-base md:text-lg font-light leading-relaxed mb-6">
-              SAYANI FASHION is a creative production studio exploring form, control, and tension across interactive mediums.
+            <p className="text-base md:text-lg font-light leading-relaxed mb-8">
+              SAYANI FASHION is a creative studio working at the intersection of:
             </p>
           </ScrollReveal>
-          <ScrollReveal delay={200}>
-            <p className="text-base font-light text-muted-foreground leading-relaxed">
-              Our work prioritizes restraint, precision, and mastery over excess.
+
+          {[
+            "Design discipline",
+            "Psychological tension",
+            "Interactive systems",
+          ].map((item, i) => (
+            <ScrollReveal key={i} delay={200 + i * 80}>
+              <div className="flex items-baseline gap-4 py-3">
+                <span className="w-1 h-1 bg-gold rounded-full flex-shrink-0 mt-2" />
+                <p className="text-sm font-light text-muted-foreground">{item}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+
+          <ScrollReveal delay={500}>
+            <p className="text-base font-light leading-relaxed mt-8">
+              We approach games as designed experiences, not content pipelines.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
+      {/* Creative Philosophy */}
+      <section className="py-20 px-6 md:px-12 border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <ScrollReveal>
+            <p className="text-[10px] tracking-fashion font-mono text-gold uppercase mb-10">
+              Creative Philosophy
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={100}>
+            <p className="text-sm font-light text-muted-foreground mb-6">Our work values:</p>
+          </ScrollReveal>
+
+          {[
+            "Restraint over excess.",
+            "Clarity over spectacle.",
+            "Mastery over accessibility.",
+          ].map((item, i) => (
+            <ScrollReveal key={i} delay={150 + i * 100}>
+              <p className="text-sm font-light text-muted-foreground py-3 border-b border-border/50">
+                {item}
+              </p>
+            </ScrollReveal>
+          ))}
+
+          <ScrollReveal delay={500}>
+            <p className="text-base font-serif font-medium mt-10 italic">
+              We believe pressure reveals character — in games and in players.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Studio Values */}
       <section className="py-20 px-6 md:px-12 border-t border-border">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>

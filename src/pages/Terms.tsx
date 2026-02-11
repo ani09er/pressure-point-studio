@@ -45,28 +45,42 @@ const Terms = () => {
             </div>
 
             <div>
-              <h2 className="text-base font-serif font-medium text-foreground mb-3">5. Limitation of Liability</h2>
+              <h2 className="text-base font-serif font-medium text-foreground mb-3">5. Usage Expectations</h2>
+              <p>
+                PRESSURE POINT is designed for personal, non-commercial use. Users are expected to engage with the game as intended. Automated play, data scraping, or unauthorized access to game systems is prohibited.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-base font-serif font-medium text-foreground mb-3">6. Limitation of Liability</h2>
               <p>
                 SAYANI FASHION shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services.
               </p>
             </div>
 
             <div>
-              <h2 className="text-base font-serif font-medium text-foreground mb-3">6. Governing Law</h2>
+              <h2 className="text-base font-serif font-medium text-foreground mb-3">7. Platform Compliance</h2>
+              <p>
+                PRESSURE POINT is distributed through Google Play and complies with Google Play Developer Program Policies. Users must also comply with Google Play's Terms of Service when downloading or using the game.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-base font-serif font-medium text-foreground mb-3">8. Governing Law</h2>
               <p>
                 These terms shall be governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in India.
               </p>
             </div>
 
             <div>
-              <h2 className="text-base font-serif font-medium text-foreground mb-3">7. Changes to Terms</h2>
+              <h2 className="text-base font-serif font-medium text-foreground mb-3">9. Changes to Terms</h2>
               <p>
                 We reserve the right to modify these terms at any time. Continued use of our services constitutes acceptance of modified terms.
               </p>
             </div>
 
             <div>
-              <h2 className="text-base font-serif font-medium text-foreground mb-3">8. Contact</h2>
+              <h2 className="text-base font-serif font-medium text-foreground mb-3">10. Contact</h2>
               <p>
                 For questions regarding these terms, contact us at contact@sayanifashion.com.
               </p>

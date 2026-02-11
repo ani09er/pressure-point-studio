@@ -62,13 +62,19 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[10px] text-muted-foreground font-mono font-light">
-            © {new Date().getFullYear()} SAYANI FASHION. All rights reserved.
+        {/* Brand Statement */}
+        <div className="mt-16 pt-8 border-t border-border">
+          <p className="text-xs font-serif italic text-muted-foreground mb-8">
+            Designed with restraint. Built for mastery.
           </p>
-          <p className="text-[10px] text-muted-foreground font-mono font-light">
-            India
-          </p>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-[10px] text-muted-foreground font-mono font-light">
+              © {new Date().getFullYear()} SAYANI FASHION. All rights reserved.
+            </p>
+            <p className="text-[10px] text-muted-foreground font-mono font-light">
+              India
+            </p>
+          </div>
         </div>
       </div>
     </footer>

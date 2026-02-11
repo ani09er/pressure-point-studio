@@ -2,39 +2,74 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const entries = [
   {
-    version: "0.4.1",
+    version: "0.14",
     date: "2026-02-08",
-    focus: "Tolerance drain curve refinement under sustained compressor exposure",
+    focus: "Pressure Curve Adjustment",
+    details: [
+      "Reduced early-game forgiveness.",
+      "Increased recovery reward window.",
+    ],
+    outcome: "Fewer panic ruptures. Higher skill separation.",
   },
   {
-    version: "0.4.0",
+    version: "0.13",
     date: "2026-01-28",
-    focus: "False Reliever timing offset calibration — mislead window narrowed to 120ms",
+    focus: "False Reliever timing offset calibration",
+    details: [
+      "Mislead window narrowed to 120ms.",
+      "Visual cue subtlety increased.",
+    ],
+    outcome: "Players who rely on visual cues alone now fail more consistently.",
   },
   {
-    version: "0.3.5",
+    version: "0.12",
     date: "2026-01-15",
-    focus: "Pressure Leech drain rate balanced against passive tolerance recovery",
+    focus: "Pressure Leech drain rate balance",
+    details: [
+      "Drain rate balanced against passive tolerance recovery.",
+      "Leech proximity detection refined.",
+    ],
+    outcome: "Margin erosion feels inevitable but manageable.",
   },
   {
-    version: "0.3.0",
+    version: "0.11",
     date: "2025-12-20",
-    focus: "Core pressure curve redesign — exponential buildup replaces linear model",
+    focus: "Core pressure curve redesign",
+    details: [
+      "Exponential buildup replaces linear model.",
+      "Late-stage pressure acceleration tuned.",
+    ],
+    outcome: "Endgame tension feels earned, not sudden.",
   },
   {
-    version: "0.2.2",
+    version: "0.10",
     date: "2025-12-05",
-    focus: "Input timing precision — tap window tightened to 200ms threshold",
+    focus: "Input timing precision",
+    details: [
+      "Tap window tightened to 200ms threshold.",
+      "Input buffer removed.",
+    ],
+    outcome: "Every tap is intentional. No accidental releases.",
   },
   {
-    version: "0.2.0",
+    version: "0.9",
     date: "2025-11-18",
-    focus: "Tolerance Rating system introduced — cumulative mastery metric",
+    focus: "Tolerance Rating system introduced",
+    details: [
+      "Cumulative mastery metric added.",
+      "Rating reflects consistency, not volume.",
+    ],
+    outcome: "Players can track growth without leaderboard pressure.",
   },
   {
-    version: "0.1.0",
+    version: "0.1",
     date: "2025-10-30",
-    focus: "Initial prototype — core auto-move and manual pressure release loop",
+    focus: "Initial prototype",
+    details: [
+      "Core auto-move loop established.",
+      "Manual pressure release mechanic functional.",
+    ],
+    outcome: "Proof of concept validated. Core tension loop works.",
   },
 ];
 
@@ -59,12 +94,29 @@ const DevLog = () => {
         </div>
       </section>
 
-      <section className="py-16 px-6 md:px-12 border-t border-border">
+      {/* Log Purpose */}
+      <section className="py-12 px-6 md:px-12 border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <ScrollReveal>
+            <p className="text-sm font-light text-muted-foreground leading-relaxed mb-2">
+              Development logs document design decisions, not marketing milestones.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={80}>
+            <p className="text-sm font-light text-muted-foreground leading-relaxed mb-1">
+              Each entry focuses on: what changed, why it changed, what behavior it produced.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Entries */}
+      <section className="py-8 px-6 md:px-12 border-t border-border">
         <div className="max-w-3xl mx-auto">
           {entries.map((entry, i) => (
-            <ScrollReveal key={i} delay={i * 80}>
-              <div className="py-8 border-b border-border/50 group">
-                <div className="flex items-baseline justify-between mb-3">
+            <ScrollReveal key={i} delay={i * 60}>
+              <div className="py-10 border-b border-border/50 group">
+                <div className="flex items-baseline justify-between mb-2">
                   <span className="text-xs font-mono text-foreground font-medium">
                     v{entry.version}
                   </span>
@@ -72,9 +124,29 @@ const DevLog = () => {
                     {entry.date}
                   </span>
                 </div>
-                <p className="text-sm font-light text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-500">
+                <h3 className="text-base font-serif font-medium mb-4 group-hover:text-accent transition-colors duration-500">
                   {entry.focus}
-                </p>
+                </h3>
+
+                <div className="mb-4">
+                  <p className="text-[10px] tracking-fashion font-mono text-gold uppercase mb-2">
+                    Focus
+                  </p>
+                  {entry.details.map((detail, j) => (
+                    <p key={j} className="text-sm font-light text-muted-foreground py-0.5">
+                      {detail}
+                    </p>
+                  ))}
+                </div>
+
+                <div>
+                  <p className="text-[10px] tracking-fashion font-mono text-gold uppercase mb-2">
+                    Outcome
+                  </p>
+                  <p className="text-sm font-light text-muted-foreground">
+                    {entry.outcome}
+                  </p>
+                </div>
               </div>
             </ScrollReveal>
           ))}

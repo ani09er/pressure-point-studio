@@ -57,6 +57,41 @@ const PreLaunch = () => {
         </div>
       </section>
 
+      {/* Status Explanation */}
+      <section className="py-16 px-6 md:px-12 border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <ScrollReveal>
+            <p className="text-[10px] tracking-fashion font-mono text-gold uppercase mb-10">
+              Current Focus
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={100}>
+            <p className="text-base font-light leading-relaxed mb-8">
+              PRESSURE POINT is currently in active internal testing.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={150}>
+            <p className="text-sm font-light text-muted-foreground mb-4">
+              This phase focuses on:
+            </p>
+          </ScrollReveal>
+
+          {[
+            "Pressure curve balance",
+            "Tolerance recovery fairness",
+            "Enemy stress calibration",
+          ].map((item, i) => (
+            <ScrollReveal key={i} delay={200 + i * 80}>
+              <p className="text-sm font-light text-muted-foreground py-2 border-b border-border/50">
+                {item}
+              </p>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
+
       {/* What's Coming */}
       <section className="py-16 px-6 md:px-12 border-t border-border">
         <div className="max-w-3xl mx-auto">
@@ -81,6 +116,35 @@ const PreLaunch = () => {
         </div>
       </section>
 
+      {/* Release Philosophy */}
+      <section className="py-16 px-6 md:px-12 border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <ScrollReveal>
+            <p className="text-[10px] tracking-fashion font-mono text-gold uppercase mb-10">
+              Release Philosophy
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={100}>
+            <p className="text-sm font-light text-muted-foreground mb-6">
+              The game will not be released until:
+            </p>
+          </ScrollReveal>
+
+          {[
+            "All deaths feel explainable.",
+            "Recovery feels earned.",
+            "Pressure never feels random.",
+          ].map((item, i) => (
+            <ScrollReveal key={i} delay={150 + i * 80}>
+              <p className="text-sm font-light leading-loose py-2">
+                {item}
+              </p>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
+
       {/* Notification */}
       <section className="py-16 px-6 md:px-12 border-t border-border">
         <div className="max-w-3xl mx-auto">
@@ -91,6 +155,24 @@ const PreLaunch = () => {
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
+            <p className="text-sm font-light text-muted-foreground mb-4">
+              Notifications are used only to announce:
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={150}>
+            <div className="mb-8 space-y-1">
+              <p className="text-sm font-light text-muted-foreground">Public testing availability.</p>
+              <p className="text-sm font-light text-muted-foreground">Official release date.</p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={200}>
+            <div className="mb-10 space-y-1">
+              <p className="text-xs font-light text-muted-foreground/60">No marketing emails.</p>
+              <p className="text-xs font-light text-muted-foreground/60">No promotional spam.</p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={250}>
             {submitted ? (
               <p className="text-sm font-light text-muted-foreground">
                 Noted. You'll be informed.
