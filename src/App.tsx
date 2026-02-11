@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
+import CustomCursor from "./components/CustomCursor";
 import Footer from "./components/Footer";
 import PageTransition from "./components/PageTransition";
 import Index from "./pages/Index";
@@ -46,6 +47,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <CustomCursor />
         <ScrollToTop />
         <Navbar />
         <AnimatedRoutes />
