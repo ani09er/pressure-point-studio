@@ -1,10 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-abstract.jpg";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const Index = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -25,18 +24,22 @@ const Index = () => {
             alt="Abstract pressure form"
             className="w-full h-full object-cover transition-transform duration-700"
             style={{ transform: `scaleY(${compression})` }}
+            loading="eager"
           />
         </div>
 
-        <div className="relative z-10 text-center max-w-3xl" ref={heroRef}>
+        <div className="relative z-10 text-center max-w-3xl">
           <h1
-            className="text-5xl md:text-7xl lg:text-8xl font-serif font-medium tracking-tight mb-8 transition-transform duration-700"
+            className="text-5xl md:text-7xl lg:text-8xl font-serif font-medium tracking-tight mb-6 transition-transform duration-700"
             style={{ transform: `scaleY(${compression})` }}
           >
             PRESSURE POINT
           </h1>
-          <p className="text-sm md:text-base font-light tracking-fashion text-muted-foreground italic">
+          <p className="text-sm md:text-base font-light tracking-fashion text-muted-foreground italic mb-8">
             "Survive by staying close to failure."
+          </p>
+          <p className="text-xs md:text-sm font-light text-muted-foreground/70 max-w-md mx-auto leading-relaxed">
+            A precision action game built around restraint, timing, and psychological pressure.
           </p>
         </div>
 
@@ -45,29 +48,86 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Core Fantasy */}
+      {/* Editorial Introduction */}
       <section className="py-32 px-6 md:px-12">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
-            <div className="w-8 h-px bg-accent mb-12" />
+            <div className="w-8 h-px bg-accent mb-16" />
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <p className="text-lg md:text-xl font-light leading-relaxed mb-8">
-              PRESSURE POINT is a precision action game about threshold control.
+            <p className="text-lg md:text-xl font-light leading-relaxed mb-4">
+              PRESSURE POINT is not about speed.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={200}>
+            <p className="text-lg md:text-xl font-light leading-relaxed mb-12">
+              It is about discipline.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={300}>
+            <p className="text-base font-light text-muted-foreground leading-relaxed mb-4">
+              The arena applies constant pressure.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={400}>
+            <p className="text-base font-light text-muted-foreground leading-relaxed mb-12">
+              The player's task is not to escape it, but to stay within a narrow band of control — close enough to risk failure, never far enough to feel safe.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={500}>
+            <p className="text-base font-light text-muted-foreground leading-relaxed mb-4">
+              Every action has consequence.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={600}>
+            <p className="text-base font-light text-muted-foreground leading-relaxed">
+              Every hesitation compounds tension.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Design Ethos */}
+      <section className="py-24 px-6 md:px-12 border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <ScrollReveal>
+            <p className="text-[10px] tracking-fashion font-mono text-gold uppercase mb-10">
+              Design Ethos
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={100}>
+            <p className="text-base font-light text-muted-foreground leading-relaxed mb-8">
+              This game was designed with one principle:
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <p className="text-base font-light text-muted-foreground leading-relaxed mb-4">
-              The arena applies pressure.
+            <p className="text-xl md:text-2xl font-serif font-medium leading-snug mb-8">
+              The most interesting moment is right before collapse.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={300}>
             <p className="text-base font-light text-muted-foreground leading-relaxed">
-              You don't avoid it — you manage how close you are to breaking.
+              PRESSURE POINT lives entirely in that moment.
             </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Callout Quote */}
+      <section className="py-32 px-6 md:px-12 border-t border-border">
+        <div className="max-w-4xl mx-auto text-center">
+          <ScrollReveal>
+            <blockquote className="text-2xl md:text-4xl lg:text-5xl font-serif font-medium leading-tight">
+              "The game does not punish mistakes.
+              <br />
+              <span className="text-accent">It punishes panic.</span>"
+            </blockquote>
           </ScrollReveal>
         </div>
       </section>

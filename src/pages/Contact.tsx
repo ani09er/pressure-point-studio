@@ -30,6 +30,35 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Contact Context */}
+      <section className="py-12 px-6 md:px-12 border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <ScrollReveal>
+            <p className="text-[10px] tracking-fashion font-mono text-muted-foreground uppercase mb-6">
+              Accepted Inquiries
+            </p>
+          </ScrollReveal>
+
+          {[
+            "Press inquiries",
+            "Platform communication",
+            "Professional collaboration",
+          ].map((item, i) => (
+            <ScrollReveal key={i} delay={80 + i * 60}>
+              <p className="text-sm font-light text-muted-foreground py-2">
+                {item}
+              </p>
+            </ScrollReveal>
+          ))}
+
+          <ScrollReveal delay={300}>
+            <p className="text-xs font-light text-muted-foreground/60 mt-4 italic">
+              Not for support requests.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
       <section className="py-16 px-6 md:px-12 border-t border-border">
         <div className="max-w-3xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
