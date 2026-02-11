@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const navLinks = [
+  { label: "Home", path: "/" },
   { label: "The Game", path: "/the-game" },
-  { label: "Systems", path: "/the-game#systems" },
+  { label: "Systems", path: "/the-game#systems", isHash: true },
   { label: "Pre-Launch", path: "/pre-launch" },
   { label: "SAYANI FASHION", path: "/studio" },
   { label: "Development Log", path: "/dev-log" },
@@ -14,6 +15,22 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (link: typeof navLinks[0]) => {
+    setIsOpen(false);
+    if (link.isHash) {
+      const [path, hash] = link.path.split("#");
+      if (location.pathname === path) {
+        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        navigate(path);
+        setTimeout(() => {
+          document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+        }, 600);
+      }
+    }
+  };
 
   return (
     <motion.header
@@ -39,17 +56,27 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.3 + i * 0.08 }}
             >
-              <Link
-                to={link.path}
-                className={`text-[11px] tracking-fashion font-sans font-light uppercase tension-hover relative group ${
-                  location.pathname === link.path
-                    ? "text-accent"
-                    : "text-muted-foreground"
-                }`}
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-full h-px bg-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
-              </Link>
+              {link.isHash ? (
+                <button
+                  onClick={() => handleNavClick(link)}
+                  className={`text-[11px] tracking-fashion font-sans font-light uppercase tension-hover relative group text-muted-foreground`}
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-full h-px bg-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+                </button>
+              ) : (
+                <Link
+                  to={link.path}
+                  className={`text-[11px] tracking-fashion font-sans font-light uppercase tension-hover relative group ${
+                    location.pathname === link.path
+                      ? "text-accent"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-full h-px bg-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>
@@ -88,13 +115,22 @@ const Navbar = () => {
               animate={isOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
               transition={{ duration: 0.3, delay: i * 0.05 }}
             >
-              <Link
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className="text-xs tracking-fashion font-sans font-light uppercase tension-hover text-muted-foreground"
-              >
-                {link.label}
-              </Link>
+              {link.isHash ? (
+                <button
+                  onClick={() => handleNavClick(link)}
+                  className="text-xs tracking-fashion font-sans font-light uppercase tension-hover text-muted-foreground"
+                >
+                  {link.label}
+                </button>
+              ) : (
+                <Link
+                  to={link.path}
+                  onClick={() => setIsOpen(false)}
+                  className="text-xs tracking-fashion font-sans font-light uppercase tension-hover text-muted-foreground"
+                >
+                  {link.label}
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>

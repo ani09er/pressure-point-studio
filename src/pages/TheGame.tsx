@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import gameLogo from "@/assets/game-logo.png";
 import ScrollReveal from "@/components/ScrollReveal";
 import {
   AnimatedLine,
@@ -17,6 +18,20 @@ const TheGame = () => {
       {/* Header */}
       <section className="py-24 px-6 md:px-12">
         <div className="max-w-3xl mx-auto">
+          {/* Game Logo */}
+          <motion.div
+            className="flex justify-center mb-12"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <img
+              src={gameLogo}
+              alt="PRESSURE POINT logo"
+              className="w-28 h-28 md:w-36 md:h-36 object-contain"
+            />
+          </motion.div>
+
           <motion.p
             className="text-[10px] tracking-ultra-wide font-mono text-muted-foreground uppercase mb-6"
             initial={{ opacity: 0, x: -20 }}
