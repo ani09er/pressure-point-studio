@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import heroImage from "@/assets/hero-abstract.jpg";
+import gameLogo from "@/assets/game-logo-clean.png";
 import ScrollReveal from "@/components/ScrollReveal";
 import {
   AnimatedLine,
@@ -53,6 +54,14 @@ const Index = () => {
         </motion.div>
 
         <div className="relative z-10 text-center max-w-3xl">
+          <motion.img
+            src={gameLogo}
+            alt="Pressure Point logo"
+            className="w-20 h-20 md:w-28 md:h-28 mx-auto mb-8 object-contain"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          />
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
